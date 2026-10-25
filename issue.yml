@@ -1,0 +1,21 @@
+---
+- name: a
+  hosts: all
+  tasks:
+    - name: t1 for dev
+      when:  "'dev' in group_names"
+      copy:
+        content: "Development"
+        dest: /etc/issue
+
+    - name: t2 for test
+      when:  "'test' in group_names"
+      copy:
+        content: "Test"
+        dest: /etc/issue
+
+    - name: t3 for prod
+      when:  "'prod' in group_names"
+      copy:
+        content: "Production"
+        dest: /etc/issue 

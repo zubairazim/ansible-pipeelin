@@ -1,0 +1,8 @@
+- name: Manage timesync with 3 servers
+  hosts: all
+  vars:
+    timesync_ntp_servers:
+      - hostname: 192.168.21.142
+        iburst: true
+  roles:
+    - rhel-system-roles.timesync

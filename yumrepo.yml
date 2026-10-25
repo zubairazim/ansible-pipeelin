@@ -1,0 +1,21 @@
+---
+- name: Configure yum repo
+  hosts: all
+  tasks:
+    - name: Configure BaseOS repository
+      ansible.builtin.yum_repository:
+        name: baseos
+        description: Baseos Description
+        baseurl: http://ec2-100-48-11-172.compute-1.amazonaws.com/BaseOS/
+        gpgcheck: true
+        gpgkey: http://ec2-100-48-11-172.compute-1.amazonaws.com/RPM-GPG-KEY-redhat-release
+        enabled: true
+
+    - name: Configure AppStream repository
+      ansible.builtin.yum_repository:
+        name: appstream
+        description: App Description
+        baseurl: http://ec2-100-48-11-172.compute-1.amazonaws.com/AppStream/
+        gpgcheck: true
+        gpgkey: http://ec2-100-48-11-172.compute-1.amazonaws.com/RPM-GPG-KEY-redhat-release
+        enabled: true

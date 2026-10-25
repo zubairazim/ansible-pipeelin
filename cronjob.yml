@@ -1,0 +1,9 @@
+---
+- name: a
+  hosts: all
+  tasks:
+    - name: Ensure a job runs at 2 minutes   
+      ansible.builtin.cron:
+        name: "check dirs"
+        state: absent
+
